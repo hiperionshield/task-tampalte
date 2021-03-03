@@ -7,11 +7,15 @@
     "build": "babel src -d dist",
     "watch": "watch \"npm run build\" src/",
     "exec": "node ./dist/main.js",
+    "serve": "watch \"npm run build & npm run exec\" src/",
     "test": "npm run build & npm run exec",
     "scripts-prepend-node-path": "npm config set scripts-prepend-node-path true"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "commander": "^7.1.0",
+    "readline-sync": "^1.4.10"
+  }
 }
