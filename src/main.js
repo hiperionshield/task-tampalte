@@ -1,5 +1,6 @@
 const fs = require('fs')
 const program = require('commander')
+const readlineSync = require('readline-sync')
 
 fs.readdir('.', (err, files)=>{
   // console.log(files)
@@ -33,6 +34,16 @@ program
   .description('マージ')
   .action((options, cmd)=>{
     console.log('マージ実行')
+  })
+
+// 対話式パッケージreadline-syncを使う
+program
+  .command('interactive')
+  .description('対話コマンド')
+  .action((options, cmd) => {
+    console.log('対話コマンド開始')
+    let userName = readlineSync.question('what your name ?')
+    console.log(`->hellow ${userName}`);
   })
 
 // 引数をパース
